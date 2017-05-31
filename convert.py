@@ -6,8 +6,8 @@ from moviepy.editor import *
 from moviepy.video.tools.drawing import color_split
 
 # load clips
-target_clip = VideoFileClip("/home/sn/sbs_py/videos/target.mp4")
-source_clip = VideoFileClip("/home/sn/sbs_py/videos/source.mp4")
+target_clip = VideoFileClip("./videos/target.mp4")
+source_clip = VideoFileClip("./videos/source.mp4")
 
 duration = min(target_clip.duration, source_clip.duration)
 fps = min(target_clip.fps, source_clip.fps)
@@ -51,7 +51,7 @@ clip_right = (source_clip.copy()
 cc = CompositeVideoClip([clip_right.set_pos((width/4, 0)),
                          clip_left.set_pos((-width/4, 0))],
                          size=(width, height))
-cc.write_videofile("/home/sn/sbs_py/videos/composite.mp4", fps=fps, codec='mpeg4')
+cc.write_videofile("./videos/composite.mp4", fps=fps, codec='mpeg4')
 
 print('done')
 
